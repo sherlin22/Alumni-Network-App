@@ -1,0 +1,34 @@
+@host = http://localhost:5000
+@token = YOUR_JWT_TOKEN
+
+### Register
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Rashmi",
+  "lastName": "Sherlin",
+  "email": "rashmi@example.com",
+  "password": "Pass@123",
+  "role": "Alumni",
+  "department": "IT",
+  "yearOfJoining": 2022,
+  "currentLocation": "Chennai",
+  "currentCompany": "Contoso"
+}
+
+### Login
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "rashmi@example.com",
+  "password": "Pass@123"
+}
+
+### Get posts
+GET {{host}}/api/posts?pageNumber=1&pageSize=10
+
+### Like post
+POST {{host}}/api/posts/1/like
+Authorization: Bearer {{token}}
